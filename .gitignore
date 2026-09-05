@@ -131,3 +131,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+/wp-content/ai1wm-backups/
