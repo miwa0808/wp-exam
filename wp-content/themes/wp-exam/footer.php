@@ -7,11 +7,13 @@
         <p>WordPressテーマ化の学習用デモサイトです。</p>
       </div>
       <nav class="footer-links">
-        <ul>
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="page.html">私たちについて</a></li>
-          <li><a href="archive.html">ブログ</a></li>
-        </ul>
+        <?php
+        $args = [
+          'menu' => 'global-navigation',
+          'menu_class' => '',
+          'container' => false,
+        ];
+        wp_nav_menu($args); ?>
       </nav>
     </div>
     <div class="copyright">
@@ -20,6 +22,7 @@
   </div>
 </footer>
 
+<?php wp_footer(); ?>
 </body>
 
 </html>

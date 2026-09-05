@@ -4,8 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WordPressテーマ化練習用サイト | TOP</title>
-  <link rel="stylesheet" href="css/style.css">
+
+
+  <?php wp_enqueue_style('stylesheet', get_template_directory_uri() . '/css/style.css'); ?>
+
+  <?php wp_head(); ?>
 </head>
 
 <body>
@@ -14,14 +17,16 @@
   <header class="site-header">
     <div class="container">
       <div class="site-logo">
-        <a href="index.html">WP Practice</a>
+        <a href="<?= home_url(); ?>"><?php bloginfo('name'); ?></a>
       </div>
       <nav class="global-nav">
-        <ul>
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="page.html">私たちについて</a></li>
-          <li><a href="archive.html">ブログ</a></li>
-        </ul>
+        <?php
+        $args = [
+          'menu' => 'global-navigation',
+          'menu_class' => '',
+          'container' => false,
+        ];
+        wp_nav_menu($args); ?>
       </nav>
     </div>
   </header>
